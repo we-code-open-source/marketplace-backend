@@ -1,0 +1,7 @@
+* text=auto
+*.html linguist-vendored
+*.css linguist-vendored
+*.js linguist-vendored
+.editorconfig linguist-vendored
+.gitattributes linguist-vendored
+.gitignore linguist-vendored
