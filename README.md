@@ -53,9 +53,9 @@ docker-compose exec wcos-backend php artisan key:generate
 docker-compose exec wcos-backend php artisan db:seed --class=PermissionsTableSeeder
 ```  
 
-Done. system may be accesses at `http://localhost:2222/` (or the specified port in docker-compose.yml file [if modified])
+## System Access
 
-#### System Access
+System may be accesses at `http://localhost:2222/` (or the specified port in docker-compose.yml file [if modified])
 
 Login information for admin user:
 ```
@@ -64,21 +64,14 @@ username : admin@demo.com
 password : 123456
 ```
 
-
 #### Extra commands:
 
 For any commands inside the laravel container:
 ```
 docker-compose exec wcos-backend #command#
 ```
-  
 
-Or SSH directly inside the container:
-```
-docker-compose exec wcos-backend bash
-```
-
-For any commands inside the database container:
+For any commands inside the mysql database container:
 ```
 docker-compose exec wcos-db #command#
 
@@ -92,9 +85,11 @@ The container is used as an out-of-the-box server that has all the dependencies 
 
 The code directory is mapped to the docker-container, so any change you make in the files will immediately be reflected inside the container... making the container practically just an engine running your code with all of its required dependencies and server enhancements, in any platform you may have, and without the need to make any changes in your local computer environments. 
 
-If you have a development environment already installed, you can still pass Laravel commands in the code directory itlsef and changes will be reflected inside the container immediately.
+If you have a development environment already installed, you can still pass Laravel commands in the code directory itself and changes will be reflected inside the container immediately.
 
 The images are pre-build and uploaded in the docker-registry, so develoepers can download them directly without the need to build them themselves.
+
+Docker Repo: https://hub.docker.com/repository/docker/wcos/marketplace-backend
 
 # 2. Standard Deployment:
 
@@ -158,5 +153,6 @@ More documentation and enhacements are being worked upon and will be updated reg
 
 ## Road Map (initial - open to suggessions and contributions)
 - Upgrade Laravel version to 9.x.
+- Integrating local (Libyan) online payment gateways.
 - Plug-in System.
 - Migrate to Appwrite.io instead of Firebase/Mysql. This will allow for a single high performance real-time database/document-based db with all the features firebase offers, and better yet, for free, making the project completely free to use and deploy in production. (Could be coded as a plugin).
